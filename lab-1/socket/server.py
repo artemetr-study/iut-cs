@@ -21,7 +21,7 @@ if __name__ == '__main__':
                     print(f'Получены данные: {ticket_number}')
 
                     if len(ticket_number) != 6 or len(re.sub(r'[^\d]', '', ticket_number)) != 6:
-                        conn.sendall(str.encode('Не валидный номер заявки'))
+                        conn.sendall(str.encode('Не валидный номер билета'))
                         continue
 
                     conn.sendall(str.encode('Счастливый' if sum([int(ticket_number[i]) for i in range(3)]) == sum([int(ticket_number[i]) for i in range(3, 6)]) else 'Не счастливый'))
